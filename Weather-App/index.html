@@ -4,29 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weather App</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
 <h1>Weather App</h1>
 <input type="text" id="city" placeholder="Enter city">
 <button onclick="getWeather()">Get Weather</button>
-
 <div id="result"></div>
-
+</div>
 <script>
 async function getWeather() {
-    const city = document.getElementById('city').value;
-    const res = await fetch(`http://127.0.0.1:5000/weather?city=${city}`);
-    const data = await res.json();
-    
-    if (data.error) {
-        document.getElementById('result').innerText = data.error;
-    } else {
-        document.getElementById('result').innerHTML = `
-            <p>City: ${data.city}</p>
-            <p>Temperature: ${data.temperature}°C</p>
-            <p>Description: ${data.description}</p>
-        `;
-    }
+const city = document.getElementById('city').value;
+const res = await fetch(`http://127.0.0.1:5000/weather?city=${city}`);
+const data = await res.json();
+
+
+if (data.error) {
+document.getElementById('result').innerText = data.error;
+} else {
+document.getElementById('result').innerHTML = `
+<p>City: ${data.city}</p>
+<p>Temperature: ${data.temperature}°C</p>
+<p>Description: ${data.description}</p>
+`;
+}
 }
 </script>
 </body>
