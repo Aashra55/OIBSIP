@@ -1,20 +1,33 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  
 
 app = Flask(__name__)
-API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"
+CORS(app)
+
+API_KEY = os.getenv("API_KEY")
 
 @app.route("/weather")
 def get_weather():
     city = request.args.get("city")
-    if not city:
-        return jsonify({"error": "City is required"}), 400
+    lat = request.args.get("lat")
+    lon = request.args.get("lon")
+
+    if city:
+        url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    elif lat and lon:
+        url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}&units=metric"
+    else:
+        return jsonify({"error": "City or coordinates are required"}), 400
     
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
     response = requests.get(url).json()
     
     if response.get("cod") != 200:
-        return jsonify({"error": response.get("message", "Error fetching data")}), 400
+        return jsonify({"error": response.get("message", "Error fetching data")}), response.get("cod")
     
     data = {
         "city": response["name"],

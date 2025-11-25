@@ -1,52 +1,120 @@
-body {
-font-family: Arial, sans-serif;
-background: #f0f8ff;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+}
 
 .container {
-background: #ffffff;
-padding: 30px;
-border-radius: 12px;
-box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-text-align: center;
-width: 90%;
-max-width: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 480px;
+    backdrop-filter: blur(10px);
 }
 
 
-input[type=text] {
-width: 80%;
-padding: 10px;
-margin: 10px 0;
-border: 1px solid #ccc;
-border-radius: 6px;
+
+
+
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-
-button {
-padding: 10px 20px;
-border: none;
-background: #007BFF;
-color: white;
-border-radius: 6px;
-cursor: pointer;
-transition: background 0.3s;
+input[type="text"] {
+    width: 70%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
-
-button:hover {
-background: #0056b3;
+input[type="text"]::placeholder {
+    color: #ddd;
 }
 
+#search-btn {
+    padding: 15px 25px;
+    border: none;
+    background: #ff6e7f;
+    color: white;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1em;
+}
+
+#search-btn:hover {
+    background: #bfe9ff;
+    color: cadetblue;
+}
+
+#local-weather-btn {
+    padding: 15px 25px;
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 25px;
+    font-size: 1em;
+}
+
+#local-weather-btn:hover {
+    background: #218838;
+}
 
 #result {
-margin-top: 20px;
-font-size: 18px;
-color: #333;
+    margin-top: 25px;
+    font-size: 1.2em;
+}
+
+#result p {
+    margin: 10px 0;
+}
+
+#weather-icon {
+    font-size: 4em;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: #ffbaba;
+    font-weight: 500;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #ff6e7f;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

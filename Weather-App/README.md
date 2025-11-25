@@ -1,78 +1,64 @@
-# README.md — Weather App
+# Weather App
 
-## Project Overview
-
-This is a simple **Weather App** built with **Python (Flask)** for the backend and **JavaScript/HTML/CSS** for the frontend. Users can enter a city name and get current weather information including temperature and description.
+A simple and modern weather application that allows users to get the current weather for any city in the world, or for their current location.
 
 ## Features
 
-* Search weather by city name
-* Displays temperature in Celsius
-* Shows weather description
-* Responsive and simple frontend
+- **Search by City:** Get the current weather by entering a city name.
+- **Local Weather:** Get the weather for your current location with a single click.
+- **Dynamic UI:** A clean and responsive user interface with a loading indicator.
+- **Error Handling:** Clear error messages for invalid cities or network issues.
 
 ## Tech Stack
 
-* **Backend:** Python, Flask, Requests
-* **Frontend:** HTML, CSS, JavaScript
-* **API:** OpenWeatherMap
+- **Backend:** Python (Flask)
+- **Frontend:** HTML, CSS, JavaScript
+- **API:** OpenWeatherMap
 
-## Installation
+## Setup and Installation
 
-1. Clone the repository:
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository_url>
+    cd Weather-App
+    ```
 
-```bash
-git clone <repository_url>
-cd weather-app
-```
+2.  **Create and activate a virtual environment:**
+    ```bash
+    # For Windows
+    python -m venv venv
+    venv\Scripts\activate
 
-2. Create a virtual environment:
+    # For macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
 
-```bash
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-```
+3.  **Install the dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-3. Install dependencies:
+4.  **Set up the environment variables:**
+    - Rename the `.env.example` file to `.env`.
+    - Open the `.env` file and replace `your_api_key_here` with your actual OpenWeatherMap API key.
+    ```
+    API_KEY=your_api_key_here
+    ```
 
-```bash
-pip install -r requirements.txt
-```
+## Running the Application
 
-4. Set your OpenWeatherMap API key in `app.py`:
+1.  **Start the Flask server:**
+    ```bash
+    python app.py
+    ```
+    The backend server will start running at `http://127.0.0.1:5000`.
 
-```python
-API_KEY = "YOUR_API_KEY"
-```
+2.  **Open the application in your browser:**
+    - Simply open the `index.html` file in your web browser to use the application.
 
-## Running the App
+## How to Use
 
-```bash
-python app.py
-```
+- **To get weather by city:** Enter the name of a city in the input field and click the "Get Weather" button.
+- **To get local weather:** Click the "Get Local Weather" button and allow the browser to access your location.
 
-* Backend will run on `http://127.0.0.1:5000`
-* Open `index.html` in your browser to access the frontend.
-
-## Usage
-
-1. Enter a city name in the input box.
-2. Click **Get Weather**.
-3. View the temperature and description.
-
-## Requirements
-
-Create a `requirements.txt` file:
-
-```
-Flask==2.3.2
-requests==2.32.0
-```
-
-## Optional Enhancements
-
-* Add modern UI with Tailwind CSS or Bootstrap.
-* Use React for a dynamic frontend.
-* Show weather icons for different conditions.
-* Deploy backend and frontend to cloud platforms.

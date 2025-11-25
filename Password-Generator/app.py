@@ -66,4 +66,5 @@ if st.button("🚀 Generate Password", use_container_width=True):
     password = generate_password(length, use_uppercase, use_numbers, use_special_chars)
     st.success("🎉 Your Strong Password is Ready!")
     st.markdown(f"<div class='password-box'>{password}</div>", unsafe_allow_html=True)
+    st.write("")
     st.code(password)
